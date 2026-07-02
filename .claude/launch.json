@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lp-voxa-greenlife-b2c",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 5758
+    }
+  ]
+}
