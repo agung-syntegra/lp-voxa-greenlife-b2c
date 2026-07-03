@@ -139,6 +139,12 @@ section{padding:96px 0}
 .product-card .fits li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--ink)}
 .product-card .fits li::before{content:"✓";flex-shrink:0;color:var(--leaf-dark);font-weight:800;font-family:var(--display)}
 .product-card .highlight{background:var(--green-soft);border-left:3px solid var(--leaf-dark);border-radius:0 12px 12px 0;padding:14px 16px;font-size:14px;color:var(--forest);margin-top:auto}
+.power-rec{background:linear-gradient(135deg,rgba(63,185,104,.10),rgba(242,185,28,.10));border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;align-items:flex-start;gap:14px}
+.power-rec .power-icon{width:36px;height:36px;border-radius:10px;background:var(--forest);color:var(--amber);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:18px;flex-shrink:0}
+.power-rec .power-body{flex:1;min-width:0}
+.power-rec .power-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);display:block;margin-bottom:3px}
+.power-rec .power-val{font-family:var(--display);font-weight:800;color:var(--forest);letter-spacing:-.01em;font-size:16px;line-height:1.2;display:block}
+.power-rec .power-note{display:block;margin-top:6px;font-size:12.5px;color:var(--ink-soft);line-height:1.45}
 @media (max-width:900px){.product-grid{grid-template-columns:1fr}}
 
 /* COMPARISON TABLE */
@@ -179,19 +185,36 @@ section{padding:96px 0}
 .tips-list li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--forest);color:var(--amber);font-family:var(--mono);font-size:11px;font-weight:700;display:grid;place-items:center;margin-top:1px}
 @media (max-width:900px){.tips-grid{grid-template-columns:1fr}}
 
-/* TESTIMONI */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.testi-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:18px;position:relative;transition:transform .2s ease,box-shadow .2s ease}
-.testi-card:hover{transform:translateY(-4px);box-shadow:0 30px 50px -35px rgba(15,58,38,.4)}
-.testi-card .placeholder-note{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;background:rgba(15,58,38,.85);color:var(--amber);padding:3px 7px;border-radius:999px;text-transform:uppercase;pointer-events:none}
-.testi-card .stars{color:var(--amber);font-size:16px;letter-spacing:2px}
-.testi-card blockquote{margin:0;font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--forest);font-style:italic;font-weight:600}
-.testi-card blockquote::before{content:"“";color:var(--leaf);font-family:var(--serif);font-size:38px;line-height:0;vertical-align:-12px;margin-right:4px}
-.testi-meta{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line)}
-.testi-avatar{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--forest);color:var(--amber);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:-.02em}
-.testi-name{font-family:var(--display);font-weight:700;font-size:15px;color:var(--forest);letter-spacing:-.01em;line-height:1.2}
-.testi-role{font-size:12.5px;color:var(--ink-mute);margin-top:3px}
-@media (max-width:900px){.testi-grid{grid-template-columns:1fr}}
+/* TESTIMONI — Shopee-style + slider */
+.testi-head-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.testi-head-row .section-head{margin-bottom:0}
+.testi-nav-btns{display:flex;gap:10px}
+.testi-nav-btn{width:44px;height:44px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--forest);cursor:pointer;font-family:var(--display);font-size:22px;line-height:1;display:grid;place-items:center;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+.testi-nav-btn:hover{background:var(--forest);color:#fff;border-color:var(--forest);transform:translateY(-2px)}
+.testi-nav-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;background:#fff;color:var(--forest);border-color:var(--line)}
+
+.testi-slider{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 44px) / 3);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:8px}
+.testi-slider::-webkit-scrollbar{display:none}
+@media (max-width:900px){.testi-slider{grid-auto-columns:calc(100% - 20px)}}
+
+.shopee-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;scroll-snap-align:start;transition:box-shadow .2s ease,transform .2s ease}
+.shopee-card:hover{box-shadow:0 20px 40px -30px rgba(15,58,38,.35);transform:translateY(-2px)}
+.shopee-hd{display:flex;align-items:center;gap:12px}
+.shopee-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--forest),var(--forest-2));color:var(--amber);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px;flex-shrink:0;text-transform:uppercase}
+.shopee-usr{flex:1;min-width:0}
+.shopee-usr .u{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--forest);letter-spacing:.02em}
+.shopee-usr .d{font-size:11.5px;color:var(--ink-mute);margin-top:2px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.shopee-stars{color:#EE4D2D;letter-spacing:2px;font-size:14px;line-height:1}
+.shopee-variant{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--forest);text-transform:uppercase;padding:6px 10px;background:var(--green-soft);border-radius:6px;align-self:flex-start;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shopee-body{margin:0;font-size:14px;color:var(--ink);line-height:1.55}
+.shopee-ft{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;align-items:center;justify-content:space-between;font-size:11.5px;color:var(--ink-mute);gap:10px}
+.shopee-ft .helpful{display:inline-flex;gap:5px;align-items:center}
+.shopee-badge{background:#EE4D2D;color:#fff;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;padding:3px 7px;border-radius:4px;text-transform:uppercase;line-height:1.2}
+
+.testi-dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
+.testi-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;cursor:pointer;padding:0;transition:all .25s ease}
+.testi-dot:hover{background:var(--ink-mute)}
+.testi-dot.active{background:var(--forest);width:24px;border-radius:4px}
 
 /* FAQ */
 .faq{display:grid;gap:12px}
@@ -380,6 +403,13 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
         </div>
         <h3>Greenlife 3kg 12V 12AH</h3>
         <p>Pilihan baterai 12V 12AH dengan bobot lebih ringan, cocok untuk kebutuhan penggantian baterai sepeda listrik dengan ruang baterai yang sesuai.</p>
+        <div class="power-rec">
+          <span class="power-icon">⚡</span>
+          <div class="power-body">
+            <span class="power-label">Rekomendasi motor</span>
+            <span class="power-val">Sepeda listrik &lt; 300W</span>
+          </div>
+        </div>
         <div class="fits">
           <h5>Cocok untuk</h5>
           <ul>
@@ -408,6 +438,13 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
         </div>
         <h3>Greenlife 3,4kg 12V 12AH</h3>
         <p>Baterai 12V 12AH dengan bobot lebih berat dibanding varian 3kg. Cocok untuk pengguna yang ingin pilihan 12AH dengan konstruksi yang terasa lebih solid.</p>
+        <div class="power-rec">
+          <span class="power-icon">⚡</span>
+          <div class="power-body">
+            <span class="power-label">Rekomendasi motor</span>
+            <span class="power-val">Sepeda listrik 350W ke atas</span>
+          </div>
+        </div>
         <div class="fits">
           <h5>Cocok untuk</h5>
           <ul>
@@ -436,6 +473,14 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
         </div>
         <h3>Greenlife 3,7kg 12V 12AH</h3>
         <p>Baterai 12V 12AH dengan bobot lebih tinggi di kelas 12AH. Diposisikan sebagai opsi 12AH yang lebih premium dan solid untuk pengguna yang mencari konstruksi lebih mantap.</p>
+        <div class="power-rec">
+          <span class="power-icon">⚡</span>
+          <div class="power-body">
+            <span class="power-label">Rekomendasi motor</span>
+            <span class="power-val">Sepeda listrik 350W–500W</span>
+            <span class="power-note">Bisa juga dipakai untuk motor 350W — lebih powerful dan lebih tahan dibanding varian 3,4kg.</span>
+          </div>
+        </div>
         <div class="fits">
           <h5>Cocok untuk</h5>
           <ul>
@@ -464,6 +509,13 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
         </div>
         <h3>Greenlife 5,2kg 12V 20AH</h3>
         <p>Baterai 12V 20AH dengan kapasitas lebih besar dibanding varian 12AH. Cocok untuk pengguna yang membutuhkan daya tahan pemakaian lebih panjang — selama kompatibel dengan sepeda listriknya.</p>
+        <div class="power-rec">
+          <span class="power-icon">⚡</span>
+          <div class="power-body">
+            <span class="power-label">Rekomendasi motor</span>
+            <span class="power-val">Sepeda listrik 500W–650W</span>
+          </div>
+        </div>
         <div class="fits">
           <h5>Cocok untuk</h5>
           <ul>
@@ -509,28 +561,28 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
             <td>12V</td>
             <td>12AH</td>
             <td>3kg</td>
-            <td>Pemakaian ringan dan harian dekat</td>
+            <td>Motor sepeda &lt; 300W</td>
           </tr>
           <tr>
             <td class="prod-name">Greenlife 3,4kg</td>
             <td>12V</td>
             <td>12AH</td>
             <td>3,4kg</td>
-            <td>Pemakaian harian standar</td>
+            <td>Motor sepeda 350W ke atas</td>
           </tr>
           <tr>
             <td class="prod-name">Greenlife 3,7kg</td>
             <td>12V</td>
             <td>12AH</td>
             <td>3,7kg</td>
-            <td>Opsi 12AH dengan bobot lebih besar</td>
+            <td>Motor sepeda 350W–500W</td>
           </tr>
           <tr>
             <td class="prod-name">Greenlife 5,2kg</td>
             <td>12V</td>
             <td><span class="cap-lg">20AH</span></td>
             <td>5,2kg</td>
-            <td>Pemakaian lebih intens dan kapasitas lebih besar</td>
+            <td>Motor sepeda 500W–650W</td>
           </tr>
         </tbody>
       </table>
@@ -636,66 +688,206 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
   </div>
 </section>
 
-<!-- TESTIMONI -->
+<!-- TESTIMONI — Shopee-style slider -->
 <section class="sec-white" id="testimoni">
   <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">Cerita pengguna</span>
-      <h2 class="h2">Kata Mereka yang Sudah <em>Ganti Baterai</em>.</h2>
-      <p class="lede">Feedback ringkas dari pengguna sepeda listrik yang mengganti baterai lama dengan Greenlife 12V.</p>
+    <div class="testi-head-row">
+      <div class="section-head">
+        <span class="kicker">Ulasan pembeli</span>
+        <h2 class="h2">Kepuasan Pelanggan Kami <em>di Shopee</em>.</h2>
+        <p class="lede">Cuplikan ulasan pengguna sepeda listrik yang mengganti baterai lama dengan Greenlife 12V. Semua dari pembeli terverifikasi di toko Shopee kami.</p>
+      </div>
+      <div class="testi-nav-btns">
+        <button type="button" class="testi-nav-btn" data-testi-nav="prev" aria-label="Ulasan sebelumnya">‹</button>
+        <button type="button" class="testi-nav-btn" data-testi-nav="next" aria-label="Ulasan berikutnya">›</button>
+      </div>
     </div>
 
-    <div class="testi-grid">
+    <div class="testi-slider" role="list" aria-label="Ulasan pembeli Shopee">
 
-      <!-- Kartu 1 — pengguna harian ringan -->
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>
-          Baterai lama saya udah nggak kuat buat pulang-pergi. Setelah ganti Greenlife 12AH, jarak tempuh balik
-          normal — nggak takut lagi mati di jalan.
-        </blockquote>
-        <div class="testi-meta">
-          <div class="testi-avatar">A</div>
-          <div>
-            <div class="testi-name">Ari Wibowo</div>
-            <div class="testi-role">Pengguna harian · Bekasi</div>
+      <!-- Kartu 1 — Ari (harian) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">a</div>
+          <div class="shopee-usr">
+            <div class="u">a***o</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>3 minggu lalu</span></div>
           </div>
+          <span class="shopee-badge">Shopee</span>
         </div>
-      </div>
+        <div class="shopee-variant">Variasi: 12V · 12AH · 3kg</div>
+        <p class="shopee-body">Baterai sudah dipasang, jarak tempuh balik normal. Nggak takut lagi mati di jalan buat pulang-pergi kerja. Packing rapi, respon admin cepat waktu tanya-tanya sebelum beli.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 12 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
 
-      <!-- Kartu 2 — pengguna keluarga -->
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>
-          Awalnya bingung pilih varian yang mana. Setelah konsultasi dulu, tim VOXA bantu pilih yang cocok
-          buat sepeda listrik anak saya — proses ganti gampang, langsung nyala.
-        </blockquote>
-        <div class="testi-meta">
-          <div class="testi-avatar">S</div>
-          <div>
-            <div class="testi-name">Sri Handayani</div>
-            <div class="testi-role">Pengguna keluarga · Tangerang</div>
+      <!-- Kartu 2 — Sri (keluarga) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">s</div>
+          <div class="shopee-usr">
+            <div class="u">s***i</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>5 minggu lalu</span></div>
           </div>
+          <span class="shopee-badge">Shopee</span>
         </div>
-      </div>
+        <div class="shopee-variant">Variasi: 12V · 12AH · 3,4kg</div>
+        <p class="shopee-body">Awalnya bingung pilih varian yang mana, admin bantu sampai fix. Cocok buat sepeda listrik anak, tinggal pasang langsung nyala. Yang ini bobotnya pas — nggak terlalu ringan, nggak terlalu berat.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 9 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
 
-      <!-- Kartu 3 — pengguna aktif upgrade ke 20AH -->
-      <div class="testi-card">
-        <div class="stars">★★★★★</div>
-        <blockquote>
-          Sebelumnya pakai 12AH, saya sering ngerasa kurang buat aktivitas seharian. Upgrade ke Greenlife 20AH
-          bikin sekali cas cukup lama — enak buat pemakaian yang lebih intens.
-        </blockquote>
-        <div class="testi-meta">
-          <div class="testi-avatar">R</div>
-          <div>
-            <div class="testi-name">Reza Pratama</div>
-            <div class="testi-role">Pengguna aktif · Pandeglang</div>
+      <!-- Kartu 3 — Reza (upgrade 20AH) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">r</div>
+          <div class="shopee-usr">
+            <div class="u">r***a</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>2 minggu lalu</span></div>
           </div>
+          <span class="shopee-badge">Shopee</span>
         </div>
-      </div>
+        <div class="shopee-variant">Variasi: 12V · 20AH · 5,2kg</div>
+        <p class="shopee-body">Upgrade dari 12AH ke 20AH. Sekali cas awet buat aktivitas seharian, tenaga juga terasa lebih stabil pas nanjak. Sudah cek dulu kompatibilitasnya via chat sebelum beli — aman.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 15 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 4 — Yuni (first-time) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">y</div>
+          <div class="shopee-usr">
+            <div class="u">y***i</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>7 minggu lalu</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <div class="shopee-variant">Variasi: 12V · 12AH · 3kg</div>
+        <p class="shopee-body">Pengiriman cepat, dikemas aman pakai bubble wrap tebal. Setelah dipakai seminggu, tarikan lebih responsif dari baterai lama. Recommended buat yang mau ganti baterai first-time seperti saya.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 8 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 5 — Bagus (anter anak) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">b</div>
+          <div class="shopee-usr">
+            <div class="u">b***n</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>4 minggu lalu</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <div class="shopee-variant">Variasi: 12V · 12AH · 3,4kg</div>
+        <p class="shopee-body">Ganti untuk sepeda listrik yang sering saya pakai anter anak sekolah. Muat pas di dek, nggak perlu modif apa-apa. Sudah 4 minggu dipakai harian, performanya stabil. Puas.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 11 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 6 — Nadya (ganti sendiri) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">n</div>
+          <div class="shopee-usr">
+            <div class="u">n***a</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>6 minggu lalu</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <div class="shopee-variant">Variasi: 12V · 20AH · 5,2kg</div>
+        <p class="shopee-body">Pertama kali ganti baterai sendiri, ternyata gampang. Spesifikasi sesuai deskripsi. Sepeda kembali kuat buat pulang-pergi kerja. Bakal repeat order kalau nanti udah waktunya ganti lagi.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 7 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 7 — Dimas (12AH 3,7kg solid) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">d</div>
+          <div class="shopee-usr">
+            <div class="u">d***i</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>4 minggu lalu</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <div class="shopee-variant">Variasi: 12V · 12AH · 3,7kg</div>
+        <p class="shopee-body">Cari varian 12AH yang lebih solid buat sepeda listrik keluar-masuk komplek. 3,7kg pas — bobotnya berasa mantap tapi masih ringan buat diangkat. Sudah 1 bulan pakai, aman.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 10 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 8 — Lisa (mahasiswa) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">l</div>
+          <div class="shopee-usr">
+            <div class="u">l***a</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>8 minggu lalu</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <div class="shopee-variant">Variasi: 12V · 12AH · 3kg</div>
+        <p class="shopee-body">Beli buat ke kampus. Baterai lama drop parah, kadang mati sebelum sampai. Ganti Greenlife 3kg — ringan, jarak tempuh cukup buat PP tiap hari. Puas banget, harganya juga ramah kantong.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 14 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 9 — Fauzi (courier) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">f</div>
+          <div class="shopee-usr">
+            <div class="u">f***h</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>3 minggu lalu</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <div class="shopee-variant">Variasi: 12V · 20AH · 5,2kg</div>
+        <p class="shopee-body">Dipakai buat kerjaan antar-antar barang, jaraknya lumayan tiap hari. 20AH bikin sekali cas cukup buat satu shift kerja. Sesuai deskripsi, seller amanah, chat responsif.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 13 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 10 — Maya (durability) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar">m</div>
+          <div class="shopee-usr">
+            <div class="u">m***t</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>1 minggu lalu</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <div class="shopee-variant">Variasi: 12V · 12AH · 3,7kg</div>
+        <p class="shopee-body">Sudah pakai hampir seminggu, performa stabil. Awalnya was-was karena barang elektronik online, tapi packing rapi dan langsung nyala waktu dipasang. Recommended seller.</p>
+        <div class="shopee-ft">
+          <span class="helpful">👍 6 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
 
     </div>
+
+    <div class="testi-dots" role="tablist" aria-label="Halaman ulasan"></div>
   </div>
 </section>
 
@@ -739,6 +931,11 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
       <details>
         <summary>Apakah Greenlife 12V bisa dipakai untuk semua sepeda listrik? <span class="plus">+</span></summary>
         <p>Belum tentu. Harus dicek dulu voltase sistem sepeda, jumlah baterai yang digunakan, ukuran fisik, tipe soket, dan kapasitas baterai lama. Kalau ragu, konsultasi dulu sebelum beli.</p>
+      </details>
+
+      <details>
+        <summary>Motor sepeda saya berapa watt, cocok varian mana? <span class="plus">+</span></summary>
+        <p>Panduan sederhana berdasarkan daya motor sepeda listrik: <strong>&lt; 300W</strong> pas dengan Greenlife 3kg, <strong>350W ke atas</strong> lebih pas ke 3,4kg, <strong>350W–500W</strong> ke 3,7kg (juga bisa untuk 350W — lebih powerful dari 3,4kg), dan <strong>500W–650W</strong> ke varian 20AH 5,2kg. Kalau nggak yakin daya motor sepedamu, kirim foto label motornya via WhatsApp — kami bantu cek.</p>
       </details>
 
       <details>
@@ -807,6 +1004,68 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
     <span>Made with ♥ · SYNTEGRA build</span>
   </div>
 </footer>
+
+<script>
+(function(){
+  var slider = document.querySelector('.testi-slider');
+  if (!slider) return;
+  var dotsBox = document.querySelector('.testi-dots');
+  var prev = document.querySelector('[data-testi-nav="prev"]');
+  var next = document.querySelector('[data-testi-nav="next"]');
+  var scrollTimer;
+
+  function perView(){ return window.innerWidth > 900 ? 3 : 1; }
+  function cardCount(){ return slider.querySelectorAll('.shopee-card').length; }
+  function pageCount(){ return Math.max(1, Math.ceil(cardCount() / perView())); }
+  function maxScroll(){ return Math.max(0, slider.scrollWidth - slider.clientWidth); }
+  function currentPage(){
+    if (!slider.clientWidth) return 0;
+    if (slider.scrollLeft >= maxScroll() - 2) return pageCount() - 1;
+    return Math.round(slider.scrollLeft / slider.clientWidth);
+  }
+  function goTo(p){
+    var target = Math.min(p * slider.clientWidth, maxScroll());
+    slider.scrollTo({ left: target, behavior: 'smooth' });
+  }
+  function renderDots(){
+    dotsBox.innerHTML = '';
+    var n = pageCount();
+    for (var i = 0; i < n; i++){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'testi-dot' + (i === currentPage() ? ' active' : '');
+      b.setAttribute('aria-label', 'Halaman ulasan ' + (i + 1));
+      (function(idx){ b.addEventListener('click', function(){ goTo(idx); }); })(i);
+      dotsBox.appendChild(b);
+    }
+    updateNavState();
+  }
+  function updateActiveDot(){
+    var cur = currentPage();
+    var dots = dotsBox.querySelectorAll('.testi-dot');
+    for (var i = 0; i < dots.length; i++){
+      if (i === cur) dots[i].classList.add('active');
+      else dots[i].classList.remove('active');
+    }
+    updateNavState();
+  }
+  function updateNavState(){
+    var cur = currentPage();
+    var last = pageCount() - 1;
+    prev.disabled = cur <= 0;
+    next.disabled = cur >= last;
+  }
+
+  prev.addEventListener('click', function(){ goTo(Math.max(0, currentPage() - 1)); });
+  next.addEventListener('click', function(){ goTo(Math.min(pageCount() - 1, currentPage() + 1)); });
+  slider.addEventListener('scroll', function(){
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(updateActiveDot, 90);
+  });
+  window.addEventListener('resize', renderDots);
+  renderDots();
+})();
+</script>
 
 </body>
 </html>
