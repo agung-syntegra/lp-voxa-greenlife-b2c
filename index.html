@@ -224,6 +224,17 @@ a.testi-media-slot{cursor:zoom-in;transition:transform .15s ease,box-shadow .15s
 a.testi-media-slot:hover{transform:scale(1.04);box-shadow:0 8px 18px -10px rgba(15,58,38,.4)}
 .media-play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(rgba(15,58,38,.15),rgba(15,58,38,.35));color:#fff;font-size:16px;pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,.5)}
 
+/* Media lightbox modal */
+.media-modal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;animation:mm-fade .2s ease-out}
+.media-modal.open{display:flex}
+@keyframes mm-fade{from{opacity:0}to{opacity:1}}
+.media-modal-content{max-width:min(1000px,95vw);position:relative;cursor:default}
+.media-modal-slot{display:flex;justify-content:center;align-items:center}
+.media-modal-slot img,.media-modal-slot video{display:block;max-width:100%;max-height:85vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#000}
+.media-modal-close{position:absolute;top:-44px;right:-4px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;border:none;cursor:pointer;font-size:22px;line-height:1;display:grid;place-items:center;transition:background .15s ease,transform .15s ease}
+.media-modal-close:hover{background:rgba(255,255,255,.32);transform:scale(1.05)}
+@media (max-width:640px){.media-modal-close{top:-44px;right:0}.media-modal{padding:12px}}
+
 .testi-dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
 .testi-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;cursor:pointer;padding:0;transition:all .25s ease}
 .testi-dot:hover{background:var(--ink-mute)}
@@ -266,6 +277,13 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
   section{padding:72px 0}
   .final{padding:56px 22px}
   .compare-table th,.compare-table td{padding:12px 14px;font-size:13.5px}
+  /* Nav rapih di mobile: logo tidak ke-squeeze, cukup 1 CTA */
+  .nav-in{padding:10px 0}
+  .logo img{height:40px}
+  .nav-cta{gap:8px}
+  .nav-cta .btn-ghost-dark{display:none}
+  .nav-cta .btn{padding:9px 14px;font-size:13.5px}
+  .hide-mob{display:none}
 }
 </style>
 </head>
@@ -279,7 +297,7 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
     </a>
     <div class="nav-cta">
       <a href="#produk" class="btn btn-ghost-dark">Lihat Produk</a>
-      <a href="#konsultasi" class="btn btn-primary">Konsultasi Baterai <span class="arrow">→</span></a>
+      <a href="#konsultasi" class="btn btn-primary">Konsultasi<span class="hide-mob"> Baterai</span> <span class="arrow">→</span></a>
     </div>
   </div>
 </header>
@@ -1000,6 +1018,14 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
   </div>
 </footer>
 
+<!-- Media lightbox modal -->
+<div class="media-modal" id="mediaModal" role="dialog" aria-modal="true" aria-label="Preview media ulasan">
+  <div class="media-modal-content">
+    <button type="button" class="media-modal-close" aria-label="Tutup preview">×</button>
+    <div class="media-modal-slot"></div>
+  </div>
+</div>
+
 <script>
 (function(){
   var slider = document.querySelector('.testi-slider');
@@ -1061,6 +1087,58 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
   renderDots();
 })();
 
+// Media lightbox — klik slot foto/video buka modal, bukan tab baru
+(function(){
+  var modal = document.getElementById('mediaModal');
+  if (!modal) return;
+  var slot = modal.querySelector('.media-modal-slot');
+  var closeBtn = modal.querySelector('.media-modal-close');
+
+  function isVideo(src){ return /\.(mp4|webm|ogv|mov|m4v)$/i.test(src); }
+  function open(link){
+    var src = link.getAttribute('href');
+    if (!src) return;
+    slot.innerHTML = '';
+    var media;
+    if (isVideo(src)) {
+      media = document.createElement('video');
+      media.src = src;
+      media.controls = true;
+      media.autoplay = true;
+      media.playsInline = true;
+      media.setAttribute('playsinline', '');
+    } else {
+      media = document.createElement('img');
+      media.src = src;
+      media.alt = link.getAttribute('aria-label') || 'Foto ulasan';
+    }
+    slot.appendChild(media);
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    if (!modal.classList.contains('open')) return;
+    modal.classList.remove('open');
+    var v = slot.querySelector('video');
+    if (v) { try { v.pause(); } catch(_){} }
+    slot.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function(e){
+    var link = e.target.closest && e.target.closest('a.testi-media-slot');
+    if (!link) return;
+    e.preventDefault();
+    open(link);
+  });
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', function(e){
+    if (e.target === modal) close();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') close();
+  });
+})();
 </script>
 
 </body>
