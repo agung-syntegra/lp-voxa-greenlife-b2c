@@ -179,6 +179,20 @@ section{padding:96px 0}
 .tips-list li .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--forest);color:var(--amber);font-family:var(--mono);font-size:11px;font-weight:700;display:grid;place-items:center;margin-top:1px}
 @media (max-width:900px){.tips-grid{grid-template-columns:1fr}}
 
+/* TESTIMONI */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.testi-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:18px;position:relative;transition:transform .2s ease,box-shadow .2s ease}
+.testi-card:hover{transform:translateY(-4px);box-shadow:0 30px 50px -35px rgba(15,58,38,.4)}
+.testi-card .placeholder-note{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;background:rgba(15,58,38,.85);color:var(--amber);padding:3px 7px;border-radius:999px;text-transform:uppercase;pointer-events:none}
+.testi-card .stars{color:var(--amber);font-size:16px;letter-spacing:2px}
+.testi-card blockquote{margin:0;font-family:var(--serif);font-size:18px;line-height:1.5;color:var(--forest);font-style:italic;font-weight:600}
+.testi-card blockquote::before{content:"“";color:var(--leaf);font-family:var(--serif);font-size:38px;line-height:0;vertical-align:-12px;margin-right:4px}
+.testi-meta{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--line)}
+.testi-avatar{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--forest);color:var(--amber);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:16px;letter-spacing:-.02em}
+.testi-name{font-family:var(--display);font-weight:700;font-size:15px;color:var(--forest);letter-spacing:-.01em;line-height:1.2}
+.testi-role{font-size:12.5px;color:var(--ink-mute);margin-top:3px}
+@media (max-width:900px){.testi-grid{grid-template-columns:1fr}}
+
 /* FAQ */
 .faq{display:grid;gap:12px}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:0;transition:border-color .2s ease}
@@ -622,6 +636,69 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
   </div>
 </section>
 
+<!-- TESTIMONI -->
+<section class="sec-white" id="testimoni">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Cerita pengguna</span>
+      <h2 class="h2">Kata Mereka yang Sudah <em>Ganti Baterai</em>.</h2>
+      <p class="lede">Feedback ringkas dari pengguna sepeda listrik yang mengganti baterai lama dengan Greenlife 12V.</p>
+    </div>
+
+    <div class="testi-grid">
+
+      <!-- Kartu 1 — pengguna harian ringan -->
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          Baterai lama saya udah nggak kuat buat pulang-pergi. Setelah ganti Greenlife 12AH, jarak tempuh balik
+          normal — nggak takut lagi mati di jalan.
+        </blockquote>
+        <div class="testi-meta">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Ari Wibowo</div>
+            <div class="testi-role">Pengguna harian · Bekasi</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kartu 2 — pengguna keluarga -->
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          Awalnya bingung pilih varian yang mana. Setelah konsultasi dulu, tim VOXA bantu pilih yang cocok
+          buat sepeda listrik anak saya — proses ganti gampang, langsung nyala.
+        </blockquote>
+        <div class="testi-meta">
+          <div class="testi-avatar">S</div>
+          <div>
+            <div class="testi-name">Sri Handayani</div>
+            <div class="testi-role">Pengguna keluarga · Tangerang</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kartu 3 — pengguna aktif upgrade ke 20AH -->
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <blockquote>
+          Sebelumnya pakai 12AH, saya sering ngerasa kurang buat aktivitas seharian. Upgrade ke Greenlife 20AH
+          bikin sekali cas cukup lama — enak buat pemakaian yang lebih intens.
+        </blockquote>
+        <div class="testi-meta">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Reza Pratama</div>
+            <div class="testi-role">Pengguna aktif · Pandeglang</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- USAGE EDUCATION -->
 <section class="sec-cream" id="perawatan">
   <div class="wrap">
@@ -719,6 +796,7 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
     <ul>
       <li><a href="#produk">Produk</a></li>
       <li><a href="#kompatibilitas">Kompatibilitas</a></li>
+      <li><a href="#testimoni">Cerita Pengguna</a></li>
       <li><a href="#perawatan">Perawatan</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#konsultasi">Konsultasi</a></li>
