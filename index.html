@@ -200,7 +200,10 @@ section{padding:96px 0}
 .shopee-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;scroll-snap-align:start;transition:box-shadow .2s ease,transform .2s ease}
 .shopee-card:hover{box-shadow:0 20px 40px -30px rgba(15,58,38,.35);transform:translateY(-2px)}
 .shopee-hd{display:flex;align-items:center;gap:12px}
-.shopee-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--forest),var(--forest-2));color:var(--amber);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px;flex-shrink:0;text-transform:uppercase}
+.shopee-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--forest),var(--forest-2));color:var(--amber);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px;flex-shrink:0;text-transform:uppercase;overflow:hidden}
+.shopee-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.shopee-avatar.no-photo{background:#e5e7e5;color:#9aa89f}
+.shopee-avatar.no-photo svg{width:24px;height:24px;display:block}
 .shopee-usr{flex:1;min-width:0}
 .shopee-usr .u{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--forest);letter-spacing:.02em}
 .shopee-usr .d{font-size:11.5px;color:var(--ink-mute);margin-top:2px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -210,6 +213,16 @@ section{padding:96px 0}
 .shopee-ft{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;align-items:center;justify-content:space-between;font-size:11.5px;color:var(--ink-mute);gap:10px}
 .shopee-ft .helpful{display:inline-flex;gap:5px;align-items:center}
 .shopee-badge{background:#EE4D2D;color:#fff;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;padding:3px 7px;border-radius:4px;text-transform:uppercase;line-height:1.2}
+
+.testi-media{display:flex;gap:6px;margin:4px 0 2px;flex-wrap:wrap}
+.testi-media-slot{position:relative;width:52px;height:52px;border:1.5px dashed var(--line);border-radius:8px;background:var(--cream-2);overflow:hidden;display:grid;place-items:center;flex-shrink:0}
+.testi-media-slot .media-ic{font-size:18px;opacity:.55;line-height:1}
+.testi-media-slot img,.testi-media-slot video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.testi-media-slot.filled{border-style:solid;border-color:var(--leaf-dark);background:transparent}
+.testi-media-slot.filled .media-ic{display:none}
+a.testi-media-slot{cursor:zoom-in;transition:transform .15s ease,box-shadow .15s ease}
+a.testi-media-slot:hover{transform:scale(1.04);box-shadow:0 8px 18px -10px rgba(15,58,38,.4)}
+.media-play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(rgba(15,58,38,.15),rgba(15,58,38,.35));color:#fff;font-size:16px;pointer-events:none;text-shadow:0 1px 3px rgba(0,0,0,.5)}
 
 .testi-dots{display:flex;justify-content:center;gap:8px;margin-top:24px}
 .testi-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;cursor:pointer;padding:0;transition:all .25s ease}
@@ -705,182 +718,164 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
 
     <div class="testi-slider" role="list" aria-label="Ulasan pembeli Shopee">
 
-      <!-- Kartu 1 — Ari (harian) -->
+      <!-- Kartu 1 — chotienfancythings (real testimoni) -->
       <article class="shopee-card" role="listitem">
         <div class="shopee-hd">
-          <div class="shopee-avatar">a</div>
+          <div class="shopee-avatar"><img src="img/reviews/chotien-avatar.jpg" alt="Foto profil chotienfancythings"></div>
           <div class="shopee-usr">
-            <div class="u">a***o</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>3 minggu lalu</span></div>
+            <div class="u">chotienfancythings</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>2025-09-17 08:09</span></div>
           </div>
           <span class="shopee-badge">Shopee</span>
         </div>
-        <div class="shopee-variant">Variasi: 12V · 12AH · 3kg</div>
-        <p class="shopee-body">Baterai sudah dipasang, jarak tempuh balik normal. Nggak takut lagi mati di jalan buat pulang-pergi kerja. Packing rapi, respon admin cepat waktu tanya-tanya sebelum beli.</p>
-        <div class="shopee-ft">
-          <span class="helpful">👍 12 orang terbantu</span>
-          <span>Pembelian terverifikasi</span>
+        <p class="shopee-body">Ahirnya saya menemukan produk yg saya cari, packing aman, isinya aman, gratis ongkir, dpt diskon shopee, terimakasih shopee dan seller. JAYA SELALU.</p>
+        <div class="testi-media">
+          <a class="testi-media-slot filled" href="img/reviews/chotien-1.webp" target="_blank" rel="noopener" aria-label="Lihat foto ulasan chotienfancythings 1">
+            <img src="img/reviews/chotien-1.webp" alt="Foto ulasan chotienfancythings — baterai Greenlife" loading="lazy">
+          </a>
+          <a class="testi-media-slot filled" href="img/reviews/chotien-2.webp" target="_blank" rel="noopener" aria-label="Lihat foto ulasan chotienfancythings 2">
+            <img src="img/reviews/chotien-2.webp" alt="Foto ulasan chotienfancythings — kemasan Greenlife Battery" loading="lazy">
+          </a>
+          <a class="testi-media-slot filled" href="img/reviews/chotien-vid.mp4" target="_blank" rel="noopener" aria-label="Putar video ulasan chotienfancythings">
+            <video src="img/reviews/chotien-vid.mp4" muted playsinline preload="metadata"></video>
+            <span class="media-play" aria-hidden="true">▶</span>
+          </a>
         </div>
-      </article>
-
-      <!-- Kartu 2 — Sri (keluarga) -->
-      <article class="shopee-card" role="listitem">
-        <div class="shopee-hd">
-          <div class="shopee-avatar">s</div>
-          <div class="shopee-usr">
-            <div class="u">s***i</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>5 minggu lalu</span></div>
-          </div>
-          <span class="shopee-badge">Shopee</span>
-        </div>
-        <div class="shopee-variant">Variasi: 12V · 12AH · 3,4kg</div>
-        <p class="shopee-body">Awalnya bingung pilih varian yang mana, admin bantu sampai fix. Cocok buat sepeda listrik anak, tinggal pasang langsung nyala. Yang ini bobotnya pas — nggak terlalu ringan, nggak terlalu berat.</p>
-        <div class="shopee-ft">
-          <span class="helpful">👍 9 orang terbantu</span>
-          <span>Pembelian terverifikasi</span>
-        </div>
-      </article>
-
-      <!-- Kartu 3 — Reza (upgrade 20AH) -->
-      <article class="shopee-card" role="listitem">
-        <div class="shopee-hd">
-          <div class="shopee-avatar">r</div>
-          <div class="shopee-usr">
-            <div class="u">r***a</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>2 minggu lalu</span></div>
-          </div>
-          <span class="shopee-badge">Shopee</span>
-        </div>
-        <div class="shopee-variant">Variasi: 12V · 20AH · 5,2kg</div>
-        <p class="shopee-body">Upgrade dari 12AH ke 20AH. Sekali cas awet buat aktivitas seharian, tenaga juga terasa lebih stabil pas nanjak. Sudah cek dulu kompatibilitasnya via chat sebelum beli — aman.</p>
-        <div class="shopee-ft">
-          <span class="helpful">👍 15 orang terbantu</span>
-          <span>Pembelian terverifikasi</span>
-        </div>
-      </article>
-
-      <!-- Kartu 4 — Yuni (first-time) -->
-      <article class="shopee-card" role="listitem">
-        <div class="shopee-hd">
-          <div class="shopee-avatar">y</div>
-          <div class="shopee-usr">
-            <div class="u">y***i</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>7 minggu lalu</span></div>
-          </div>
-          <span class="shopee-badge">Shopee</span>
-        </div>
-        <div class="shopee-variant">Variasi: 12V · 12AH · 3kg</div>
-        <p class="shopee-body">Pengiriman cepat, dikemas aman pakai bubble wrap tebal. Setelah dipakai seminggu, tarikan lebih responsif dari baterai lama. Recommended buat yang mau ganti baterai first-time seperti saya.</p>
-        <div class="shopee-ft">
-          <span class="helpful">👍 8 orang terbantu</span>
-          <span>Pembelian terverifikasi</span>
-        </div>
-      </article>
-
-      <!-- Kartu 5 — Bagus (anter anak) -->
-      <article class="shopee-card" role="listitem">
-        <div class="shopee-hd">
-          <div class="shopee-avatar">b</div>
-          <div class="shopee-usr">
-            <div class="u">b***n</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>4 minggu lalu</span></div>
-          </div>
-          <span class="shopee-badge">Shopee</span>
-        </div>
-        <div class="shopee-variant">Variasi: 12V · 12AH · 3,4kg</div>
-        <p class="shopee-body">Ganti untuk sepeda listrik yang sering saya pakai anter anak sekolah. Muat pas di dek, nggak perlu modif apa-apa. Sudah 4 minggu dipakai harian, performanya stabil. Puas.</p>
-        <div class="shopee-ft">
-          <span class="helpful">👍 11 orang terbantu</span>
-          <span>Pembelian terverifikasi</span>
-        </div>
-      </article>
-
-      <!-- Kartu 6 — Nadya (ganti sendiri) -->
-      <article class="shopee-card" role="listitem">
-        <div class="shopee-hd">
-          <div class="shopee-avatar">n</div>
-          <div class="shopee-usr">
-            <div class="u">n***a</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>6 minggu lalu</span></div>
-          </div>
-          <span class="shopee-badge">Shopee</span>
-        </div>
-        <div class="shopee-variant">Variasi: 12V · 20AH · 5,2kg</div>
-        <p class="shopee-body">Pertama kali ganti baterai sendiri, ternyata gampang. Spesifikasi sesuai deskripsi. Sepeda kembali kuat buat pulang-pergi kerja. Bakal repeat order kalau nanti udah waktunya ganti lagi.</p>
-        <div class="shopee-ft">
-          <span class="helpful">👍 7 orang terbantu</span>
-          <span>Pembelian terverifikasi</span>
-        </div>
-      </article>
-
-      <!-- Kartu 7 — Dimas (12AH 3,7kg solid) -->
-      <article class="shopee-card" role="listitem">
-        <div class="shopee-hd">
-          <div class="shopee-avatar">d</div>
-          <div class="shopee-usr">
-            <div class="u">d***i</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>4 minggu lalu</span></div>
-          </div>
-          <span class="shopee-badge">Shopee</span>
-        </div>
-        <div class="shopee-variant">Variasi: 12V · 12AH · 3,7kg</div>
-        <p class="shopee-body">Cari varian 12AH yang lebih solid buat sepeda listrik keluar-masuk komplek. 3,7kg pas — bobotnya berasa mantap tapi masih ringan buat diangkat. Sudah 1 bulan pakai, aman.</p>
-        <div class="shopee-ft">
-          <span class="helpful">👍 10 orang terbantu</span>
-          <span>Pembelian terverifikasi</span>
-        </div>
-      </article>
-
-      <!-- Kartu 8 — Lisa (mahasiswa) -->
-      <article class="shopee-card" role="listitem">
-        <div class="shopee-hd">
-          <div class="shopee-avatar">l</div>
-          <div class="shopee-usr">
-            <div class="u">l***a</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>8 minggu lalu</span></div>
-          </div>
-          <span class="shopee-badge">Shopee</span>
-        </div>
-        <div class="shopee-variant">Variasi: 12V · 12AH · 3kg</div>
-        <p class="shopee-body">Beli buat ke kampus. Baterai lama drop parah, kadang mati sebelum sampai. Ganti Greenlife 3kg — ringan, jarak tempuh cukup buat PP tiap hari. Puas banget, harganya juga ramah kantong.</p>
-        <div class="shopee-ft">
-          <span class="helpful">👍 14 orang terbantu</span>
-          <span>Pembelian terverifikasi</span>
-        </div>
-      </article>
-
-      <!-- Kartu 9 — Fauzi (courier) -->
-      <article class="shopee-card" role="listitem">
-        <div class="shopee-hd">
-          <div class="shopee-avatar">f</div>
-          <div class="shopee-usr">
-            <div class="u">f***h</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>3 minggu lalu</span></div>
-          </div>
-          <span class="shopee-badge">Shopee</span>
-        </div>
-        <div class="shopee-variant">Variasi: 12V · 20AH · 5,2kg</div>
-        <p class="shopee-body">Dipakai buat kerjaan antar-antar barang, jaraknya lumayan tiap hari. 20AH bikin sekali cas cukup buat satu shift kerja. Sesuai deskripsi, seller amanah, chat responsif.</p>
-        <div class="shopee-ft">
-          <span class="helpful">👍 13 orang terbantu</span>
-          <span>Pembelian terverifikasi</span>
-        </div>
-      </article>
-
-      <!-- Kartu 10 — Maya (durability) -->
-      <article class="shopee-card" role="listitem">
-        <div class="shopee-hd">
-          <div class="shopee-avatar">m</div>
-          <div class="shopee-usr">
-            <div class="u">m***t</div>
-            <div class="d"><span class="shopee-stars">★★★★★</span><span>1 minggu lalu</span></div>
-          </div>
-          <span class="shopee-badge">Shopee</span>
-        </div>
-        <div class="shopee-variant">Variasi: 12V · 12AH · 3,7kg</div>
-        <p class="shopee-body">Sudah pakai hampir seminggu, performa stabil. Awalnya was-was karena barang elektronik online, tapi packing rapi dan langsung nyala waktu dipasang. Recommended seller.</p>
         <div class="shopee-ft">
           <span class="helpful">👍 6 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 2 — j*****i (real testimoni) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar no-photo" aria-label="Pengguna tanpa foto profil">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+          <div class="shopee-usr">
+            <div class="u">j*****i</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>2025-11-06 22:50</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <p class="shopee-body">Orderan sudah diterima, produk dikirim sesuai pesanan,, kualitas produk baik, normal dan berfungsi,  okee Terima kasih</p>
+        <div class="testi-media">
+          <a class="testi-media-slot filled" href="img/reviews/k2-1.webp" target="_blank" rel="noopener" aria-label="Lihat foto ulasan j*****i">
+            <img src="img/reviews/k2-1.webp" alt="Foto ulasan j*****i — baterai Greenlife 12-12" loading="lazy">
+          </a>
+          <a class="testi-media-slot filled" href="img/reviews/k2-vid.mp4" target="_blank" rel="noopener" aria-label="Putar video ulasan j*****i">
+            <video src="img/reviews/k2-vid.mp4" muted playsinline preload="metadata"></video>
+            <span class="media-play" aria-hidden="true">▶</span>
+          </a>
+        </div>
+        <div class="shopee-ft">
+          <span class="helpful">👍 2 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 3 — a*****7 (real testimoni) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar no-photo" aria-label="Pengguna tanpa foto profil">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+          <div class="shopee-usr">
+            <div class="u">a*****7</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>2025-09-20 14:21</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <p class="shopee-body">baterai untuk mainan listrik, kualitas bagus dan ekonomis. cocok buat kebutuhan listrik dengan daya yang stabil</p>
+        <div class="testi-media">
+          <a class="testi-media-slot filled" href="img/reviews/k3-vid.mp4" target="_blank" rel="noopener" aria-label="Putar video ulasan a*****7">
+            <video src="img/reviews/k3-vid.mp4" muted playsinline preload="metadata"></video>
+            <span class="media-play" aria-hidden="true">▶</span>
+          </a>
+        </div>
+        <div class="shopee-ft">
+          <span class="helpful">👍 2 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 4 — syaiful_124 (real testimoni) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar no-photo" aria-label="Pengguna tanpa foto profil">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+          <div class="shopee-usr">
+            <div class="u">syaiful_124</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>2025-09-18 22:22</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <p class="shopee-body">Baterai dikemas dg baik, sdh dites sebelum.dipasang dan kondisi semuanya dalam keadaan bagus, ketika dipasang ukurannya pas dg tempatnya. Performanya bagus dan semoga tahan lama.</p>
+        <div class="testi-media">
+          <a class="testi-media-slot filled" href="img/reviews/k4-1.webp" target="_blank" rel="noopener" aria-label="Lihat foto ulasan syaiful_124 1">
+            <img src="img/reviews/k4-1.webp" alt="Foto ulasan syaiful_124 — baterai Greenlife dalam boks" loading="lazy">
+          </a>
+          <a class="testi-media-slot filled" href="img/reviews/k4-2.webp" target="_blank" rel="noopener" aria-label="Lihat foto ulasan syaiful_124 2">
+            <img src="img/reviews/k4-2.webp" alt="Foto ulasan syaiful_124 — kemasan Greenlife Battery" loading="lazy">
+          </a>
+          <a class="testi-media-slot filled" href="img/reviews/k4-vid.mp4" target="_blank" rel="noopener" aria-label="Putar video ulasan syaiful_124">
+            <video src="img/reviews/k4-vid.mp4" muted playsinline preload="metadata"></video>
+            <span class="media-play" aria-hidden="true">▶</span>
+          </a>
+        </div>
+        <div class="shopee-ft">
+          <span class="helpful">👍 2 orang terbantu</span>
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 5 — danang_yogi28 (real testimoni) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar"><img src="img/reviews/k5-avatar.jpg" alt="Foto profil danang_yogi28"></div>
+          <div class="shopee-usr">
+            <div class="u">danang_yogi28</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>2026-05-08 19:11</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <p class="shopee-body">Barang datang sangat baik bagus sangat cocok</p>
+        <div class="testi-media">
+          <a class="testi-media-slot filled" href="img/reviews/k5-1.webp" target="_blank" rel="noopener" aria-label="Lihat foto ulasan danang_yogi28">
+            <img src="img/reviews/k5-1.webp" alt="Foto ulasan danang_yogi28 — kemasan baterai Greenlife" loading="lazy">
+          </a>
+        </div>
+        <div class="shopee-ft">
+          <span>Pembelian terverifikasi</span>
+        </div>
+      </article>
+
+      <!-- Kartu 6 — jejen122 (real testimoni) -->
+      <article class="shopee-card" role="listitem">
+        <div class="shopee-hd">
+          <div class="shopee-avatar"><img src="img/reviews/k6-avatar.jpg" alt="Foto profil jejen122"></div>
+          <div class="shopee-usr">
+            <div class="u">jejen122</div>
+            <div class="d"><span class="shopee-stars">★★★★★</span><span>2026-02-19 00:49</span></div>
+          </div>
+          <span class="shopee-badge">Shopee</span>
+        </div>
+        <p class="shopee-body">Recomen buat ygau belanja dtoko ini packingnya sangat rapi<br>Next belanja lagi ditoko ini,salam sukses ya kaka</p>
+        <div class="testi-media">
+          <a class="testi-media-slot filled" href="img/reviews/k6-1.webp" target="_blank" rel="noopener" aria-label="Lihat foto ulasan jejen122 1">
+            <img src="img/reviews/k6-1.webp" alt="Foto ulasan jejen122 — kemasan Greenlife Battery" loading="lazy">
+          </a>
+          <a class="testi-media-slot filled" href="img/reviews/k6-2.webp" target="_blank" rel="noopener" aria-label="Lihat foto ulasan jejen122 2">
+            <img src="img/reviews/k6-2.webp" alt="Foto ulasan jejen122 — boks Greenlife 6-DZF-12" loading="lazy">
+          </a>
+          <a class="testi-media-slot filled" href="img/reviews/k6-vid.mp4" target="_blank" rel="noopener" aria-label="Putar video ulasan jejen122">
+            <video src="img/reviews/k6-vid.mp4" muted playsinline preload="metadata"></video>
+            <span class="media-play" aria-hidden="true">▶</span>
+          </a>
+        </div>
+        <div class="shopee-ft">
           <span>Pembelian terverifikasi</span>
         </div>
       </article>
@@ -1065,6 +1060,7 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
   window.addEventListener('resize', renderDots);
   renderDots();
 })();
+
 </script>
 
 </body>
