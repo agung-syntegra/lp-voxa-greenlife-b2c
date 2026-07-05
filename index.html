@@ -119,6 +119,9 @@ section{padding:96px 0}
 .product-card:hover{transform:translateY(-4px);box-shadow:0 30px 50px -35px rgba(15,58,38,.4)}
 .product-card .visual{aspect-ratio:5/3;border-radius:14px;background:linear-gradient(135deg,#eef3e6 0%,#d4e2c4 100%);position:relative;overflow:hidden;display:grid;place-items:center;border:1px solid var(--line);padding:14px}
 .product-card .visual img{max-height:100%;max-width:75%;width:auto;height:auto;filter:drop-shadow(0 12px 20px rgba(0,0,0,.28));transition:transform .3s ease}
+.product-card .visual.has-real-photo{padding:0}
+.product-card .visual.has-real-photo img{max-width:100%;max-height:100%;width:100%;height:100%;object-fit:cover;filter:none}
+.product-card:hover .visual.has-real-photo img{transform:scale(1.03) rotate(0)}
 .product-card:hover .visual img{transform:translateY(-3px) rotate(-2deg)}
 .placeholder-note{position:absolute;top:8px;right:8px;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;background:rgba(15,58,38,.85);color:var(--amber);padding:3px 7px;border-radius:999px;text-transform:uppercase;pointer-events:none}
 
@@ -435,10 +438,8 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
 
       <!-- Produk 1 -->
       <div class="product-card">
-        <!-- REPLACE: foto produk asli Greenlife 3kg (idealnya angle 3/4, background bersih) -->
-        <div class="visual">
-          <span class="placeholder-note">Foto Produk</span>
-          <img src="img/battery-3kg.svg" alt="Baterai Greenlife 3kg 12V 12AH" />
+        <div class="visual has-real-photo">
+          <img src="img/battery-3kg-real.jpg" alt="Baterai Greenlife 3kg 12V 12AH dengan kemasan boks" loading="lazy" />
         </div>
         <div class="tag-row">
           <span class="tag">12V</span>
@@ -470,10 +471,8 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
 
       <!-- Produk 2 -->
       <div class="product-card">
-        <!-- REPLACE: foto produk asli Greenlife 3,4kg -->
-        <div class="visual">
-          <span class="placeholder-note">Foto Produk</span>
-          <img src="img/battery-34kg.svg" alt="Baterai Greenlife 3,4kg 12V 12AH" />
+        <div class="visual has-real-photo">
+          <img src="img/battery-34kg-real.jpg" alt="Baterai Greenlife 3,4kg 12V 12AH dengan kemasan boks" loading="lazy" />
         </div>
         <div class="tag-row">
           <span class="tag">12V</span>
@@ -505,10 +504,8 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
 
       <!-- Produk 3 -->
       <div class="product-card">
-        <!-- REPLACE: foto produk asli Greenlife 3,7kg (KONFIRMASI SPEC dulu — brief kamu tandain "??") -->
-        <div class="visual">
-          <span class="placeholder-note">Foto Produk</span>
-          <img src="img/battery-37kg.svg" alt="Baterai Greenlife 3,7kg 12V 12AH" />
+        <div class="visual has-real-photo">
+          <img src="img/battery-37kg-real.png" alt="Baterai Greenlife 3,7kg 12V 12AH dengan kemasan boks" loading="lazy" />
         </div>
         <div class="tag-row">
           <span class="tag">12V</span>
@@ -541,10 +538,8 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
 
       <!-- Produk 4 -->
       <div class="product-card">
-        <!-- REPLACE: foto produk asli Greenlife 5,2kg (varian 20AH — kapasitas terbesar) -->
-        <div class="visual">
-          <span class="placeholder-note">Foto Produk</span>
-          <img src="img/battery-52kg.svg" alt="Baterai Greenlife 5,2kg 12V 20AH" />
+        <div class="visual has-real-photo">
+          <img src="img/battery-52kg-real.png" alt="Baterai Greenlife 5,2kg 12V 20AH dengan kemasan boks" loading="lazy" />
         </div>
         <div class="tag-row">
           <span class="tag">12V</span>
