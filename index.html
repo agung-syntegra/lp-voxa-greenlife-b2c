@@ -76,15 +76,22 @@ h1.hero-title{font-family:var(--display);font-weight:800;font-size:clamp(38px,5.
 .hero-sub + .hero-sub{margin-top:14px}
 .hero-ctas{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
 .hero-tag{margin-top:30px;color:rgba(255,255,255,.62);font-size:13px}
-.hero-visual{position:relative;display:flex;align-items:flex-end;justify-content:center;gap:14px;padding:12px}
-.hero-battery{max-width:100%;height:auto;filter:drop-shadow(0 20px 30px rgba(0,0,0,.35));transition:transform .3s ease}
-.hero-battery:hover{transform:translateY(-6px)}
-.hero-battery.hb-3  {width:110px}
-.hero-battery.hb-34 {width:118px}
-.hero-battery.hb-37 {width:126px}
-.hero-battery.hb-52 {width:150px}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual{padding-top:20px}}
-@media (max-width:520px){.hero-battery.hb-3,.hero-battery.hb-34,.hero-battery.hb-37{width:78px}.hero-battery.hb-52{width:100px}}
+.hero-visual{position:relative;min-height:540px;display:flex;align-items:center;justify-content:center;padding:16px}
+.hv-glow{position:absolute;inset:-40px;pointer-events:none;background:
+  radial-gradient(closest-side at 60% 55%,rgba(242,185,28,.28),transparent 65%),
+  radial-gradient(closest-side at 30% 30%,rgba(63,185,104,.22),transparent 60%);
+  filter:blur(6px);z-index:0}
+.hv-glow::after{content:"";position:absolute;inset:0;background:
+  conic-gradient(from 210deg at 55% 60%,transparent 0deg,rgba(255,255,255,.06) 45deg,transparent 90deg,rgba(255,221,72,.10) 180deg,transparent 220deg,rgba(255,255,255,.05) 300deg,transparent 360deg);
+  mix-blend-mode:screen;opacity:.7}
+.hv-main{position:relative;z-index:2;width:100%;max-width:500px;aspect-ratio:1/1;border-radius:22px;overflow:hidden;background:#fff;
+  box-shadow:0 40px 70px -25px rgba(0,0,0,.55),0 12px 24px -12px rgba(0,0,0,.35);
+  transition:transform .35s ease}
+.hv-main:hover{transform:translateY(-4px)}
+.hv-main img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-visual--mob{display:none}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-visual--desk{display:none}.hero-visual--mob{display:flex;margin:20px 0 8px;padding-top:0;min-height:480px}.hv-main{max-width:440px}}
+@media (max-width:520px){.hero-visual--mob{min-height:380px}.hv-main{max-width:340px}}
 
 /* SECTION BASE */
 section{padding:96px 0}
@@ -326,6 +333,13 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
       <h1 class="hero-title">
         Baterai <em>Greenlife 12V</em> untuk Sepeda Listrik <span class="under">Harian Kamu</span>.
       </h1>
+      <!-- Mobile-only duplicate: hero visual antara headline & subheadline -->
+      <div class="hero-visual hero-visual--mob" aria-hidden="true">
+        <div class="hv-glow"></div>
+        <div class="hv-main">
+          <img src="img/hero-lifestyle.png?v=2" alt="" />
+        </div>
+      </div>
       <p class="hero-sub">
         Tersedia pilihan baterai Greenlife 12V untuk sepeda listrik, mulai dari <strong style="color:#fff">12AH hingga 20AH</strong>,
         dengan beberapa pilihan bobot dan kapasitas sesuai kebutuhan pemakaian harian.
@@ -342,12 +356,12 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
         4 varian tersedia: 3kg · 3,4kg · 3,7kg (12AH) &amp; 5,2kg (20AH)
       </div>
     </div>
-    <!-- REPLACE: idealnya foto komposisi 4 produk Greenlife di studio (background transparan/gelap) -->
-    <div class="hero-visual" aria-hidden="true">
-      <img src="img/battery-3kg.svg"  alt="Greenlife 3kg 12V 12AH"   class="hero-battery hb-3" />
-      <img src="img/battery-34kg.svg" alt="Greenlife 3,4kg 12V 12AH" class="hero-battery hb-34" />
-      <img src="img/battery-37kg.svg" alt="Greenlife 3,7kg 12V 12AH" class="hero-battery hb-37" />
-      <img src="img/battery-52kg.svg" alt="Greenlife 5,2kg 12V 20AH" class="hero-battery hb-52" />
+    <!-- PLACEHOLDER: main product image 1:1 dengan radial glow backdrop (desktop-only, mobile version di dalam text col) -->
+    <div class="hero-visual hero-visual--desk" aria-hidden="true">
+      <div class="hv-glow"></div>
+      <div class="hv-main">
+        <img src="img/hero-lifestyle.png?v=2" alt="Pengguna sepeda listrik VOXA dengan baterai Greenlife 12V 20AH" />
+      </div>
     </div>
   </div>
 </section>
@@ -369,7 +383,7 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
         </p>
         <!-- REPLACE (opsional): foto/ilustrasi baterai lama vs baru, atau grafik degradasi kapasitas -->
         <div class="problem-illust">
-          <img src="img/battery-drop.svg" alt="Ilustrasi siklus baterai mulai drop: 100% → 70% → 40% → habis" />
+          <img src="img/battery-drop.png?v=2" alt="Siklus baterai yang mulai drop: 100% → 70% → 40% → habis" loading="lazy" />
         </div>
         <div class="problem-close">
           <strong>Kalau gejalanya sudah seperti ini,</strong> mengganti baterai bisa jadi solusi
@@ -415,7 +429,7 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
 
     <!-- REPLACE (opsional): infografik / render asli sistem 48V dari brand Greenlife -->
     <div class="diagram">
-      <img src="img/diagram-48v.svg" alt="Diagram sistem 48V: 4 baterai 12V dirangkai seri" />
+      <img src="img/diagram-48v.png" alt="Diagram sistem 48V: 4 baterai Greenlife 12V dirangkai seri = 48V total" loading="lazy" />
     </div>
 
     <div class="cta-row">

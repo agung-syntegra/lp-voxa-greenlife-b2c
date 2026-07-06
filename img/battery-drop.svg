@@ -88,6 +88,7 @@
   <text x="200" y="30" text-anchor="middle" font-family="'Geist Mono', ui-monospace, monospace" font-weight="600" font-size="11" fill="#c94b3b" letter-spacing="2">SIKLUS BATERAI YANG MULAI DROP</text>
 
   <!-- caption -->
-  <text x="200" y="240" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="14" fill="#0f3a26" letter-spacing="-.3">Baterai lama nggak mati mendadak.</text>
-  <text x="200" y="260" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="500" font-size="13" fill="#4d6659">Kapasitasnya menurun pelan-pelan sampai pemakaian harian terganggu.</text>
+  <text x="200" y="228" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="14" fill="#0f3a26" letter-spacing="-.3">Baterai lama nggak mati mendadak.</text>
+  <text x="200" y="252" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="500" font-size="12" fill="#4d6659">Kapasitasnya menurun pelan-pelan,</text>
+  <text x="200" y="270" text-anchor="middle" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="500" font-size="12" fill="#4d6659">sampai pemakaian harian terganggu.</text>
 </svg>
