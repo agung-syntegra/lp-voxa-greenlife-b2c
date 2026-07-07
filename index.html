@@ -137,6 +137,29 @@ section{padding:96px 0}
 .diagram img{width:100%;height:auto;display:block;border-radius:14px}
 .diagram-forest{background:transparent;border:none;padding:0;box-shadow:none}
 .diagram-forest img{border-radius:20px}
+.diagram-forest .anatomy-obj{display:block;width:100%;aspect-ratio:1670/1022;border-radius:20px;pointer-events:none}
+.anatomy-fig{position:relative}
+.anatomy-title{position:absolute;top:5%;left:4%;z-index:2;pointer-events:none;max-width:60%}
+.anatomy-title .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber);text-transform:uppercase;opacity:.9;display:block;margin-bottom:6px}
+.anatomy-title p{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(15px,2vw,22px);color:#fff;letter-spacing:-.02em;line-height:1.15}
+.anatomy-cta{position:absolute;z-index:3;font-family:var(--display);font-weight:700;font-size:clamp(10px,1.1vw,13px);color:var(--forest);padding:6px 12px;border-radius:6px;white-space:nowrap;box-shadow:0 4px 14px -4px rgba(0,0,0,.4);pointer-events:none;letter-spacing:-.005em}
+.anatomy-cta.amber{background:var(--amber);font-weight:800;letter-spacing:.02em}
+.anatomy-cta.green{background:var(--leaf)}
+.anatomy-cta::after{content:"";position:absolute;width:8px;height:8px;background:inherit;border-radius:50%}
+.anatomy-cta.c-top-center{top:6%;left:50%;transform:translateX(-50%)}
+.anatomy-cta.c-top-center::after{bottom:-14px;left:50%;transform:translateX(-50%)}
+.anatomy-cta.c-top-right{top:12%;right:5%}
+.anatomy-cta.c-top-right::after{bottom:-14px;left:20%}
+.anatomy-cta.c-bot-left{bottom:8%;left:5%}
+.anatomy-cta.c-bot-left::after{top:-14px;left:60%}
+.anatomy-cta.c-bot-right{bottom:8%;right:8%}
+.anatomy-cta.c-bot-right::after{top:-14px;left:30%}
+@media (max-width:640px){
+  .anatomy-title{top:4%;left:4%;max-width:70%}
+  .anatomy-cta{padding:4px 8px;font-size:10px}
+  .anatomy-cta::after{width:6px;height:6px}
+  .anatomy-cta.amber{letter-spacing:.01em}
+}
 .problem-illust{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
 .problem-illust img{width:100%;height:auto;border-radius:12px;display:block}
 .product-card .tag-row{display:flex;flex-wrap:wrap;gap:6px}
@@ -691,9 +714,8 @@ footer{padding:56px 0 40px;background:var(--forest);color:rgba(255,255,255,.72)}
       </div>
     </div>
 
-    <!-- REPLACE (opsional): foto sepeda listrik dengan callout ke slot baterai / port charger / dll -->
     <div class="diagram diagram-forest">
-      <img src="img/ebike-anatomy.svg" alt="Diagram anatomi sepeda listrik: battery compartment, motor, controller, charger port" />
+      <object type="image/svg+xml" data="img/ebike-anatomy.svg?v=25" class="anatomy-obj" aria-label="Anatomi sepeda listrik moped: battery compartment, motor, controller, charger port"></object>
     </div>
 
     <div class="cta-row">
